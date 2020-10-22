@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: rgb(243, 243, 243);
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+    background: radial-gradient(circle at 100%, rgb(247, 244, 244), rgb(159, 216, 243) 50%, rgb(200, 248, 173) 75%, rgb(189, 198, 247) 75%);
+    color: #363636;
+}
+
+.container {
+    width: 1200px;
+    height: 100%;
+    position: relative;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .logo {
+    line-height: 75px;
+    margin: 0 0;
+}
+
+.navMenu {
+    height: 40px;
+    line-height: 75px;
+    font-size: 25px;
+    background: transparent;
+    text-decoration: none;
+    margin-right: 30px;
+    /* display: none; */
+    opacity: 0;
+}
+
+header .cart {
+    line-height: 75px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+ /* header nav {
+    
+ } */
+
+ header nav ul {
+     list-style-type: none;
+ }
+
+ header nav ul li {
+     float: left;
+
+ }
+
+ header nav ul a {
+    height: 75px;
+    line-height: 75px;
+    color: black;
+    text-decoration: none;
+    padding: 0 25px;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: bolder;
+    cursor: context-menu;
+ }
+
+ header nav ul a:hover {
+    border-bottom: 1px solid rgb(235, 15, 15) !important;
+ }
+
+ .banner {
+     display: grid;
+     grid-template-columns: 2fr 3fr;
+     box-shadow:1px 1px 1px #fcf9f9;
+ }
+
+.banner .infoBox h1 {
+    font-size: 40px;
+    margin-top: 190px;
+    margin-right: 120px;
+    text-shadow: 1px 1px 2px;
+    text-align: center;
+}
+.banner .priceBox {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 120px;
+    text-align: center;
+}
+.banner button {
+    padding: 7px 15px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-right: 120px;
+    margin-left: 130px;
+    text-align: center;
+}
+.banner .imgBox{
+    text-align: start;
+    height: 400px;
+    margin-bottom: 60px;
+}
+.banner .imgBox img {
+    height: 100%;
+    transform: rotate(30deg);
+    margin-top: 30px;
+}
+.banMenu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 10px auto 0;
+    width: 70%;
+    float: right;
+    margin-bottom: 130px;
+}
+.banMenu .box {
+    height: 80px;
+    border-radius: 10px;
+    background-color: rgb(247, 243, 243);
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 0 10px 0 #000000;
+    margin: 0 15px;
+}
+
+.banMenu .box .thumbnail {
+    height: 100%;
+}
+
+.banMenu .box .thumbnail img {
+    height: 100px;
+    margin: -10px 0 0 -30px;
+    transform: rotate(30deg);
+}
+
+.banMenu .infoBox {
+    width: 55%;
+}
+
+.banMenu .infoBox h5 {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.banMenu .infoBox .price {
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* animation */
+
+.animate {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+.animationLeft {
+    animation-name: animateLeft;
+    animation-timing-function: ease-in-out;
+}
+.animationRight {
+    animation-name: animateRight;
+    animation-timing-function: step-end;
+    /* transform-origin: left right; */
+}
+
+@keyframes animateLeft {
+    0% {
+        transform: translate3d(-100%, 0, 0) skewX(30deg);
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+        transform: skewX(-20deg);
+    }
+    80% {
+        transform: skewX(5deg);
+    }
+    100% {
+        transform: translateZ(0);
+    }
+}
+@keyframes animateRight {
+    0% {
+        transform: rotate(45deg);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+/* media query */
+@media screen and (max-width: 768px){
+    body {
+        background-position-x: -150px;
+    }
+    .container {
+        width: 90%;
+    }
+    .banner {
+        grid-template-columns: 1fr 1fr;
+    }
+    header nav ul a {
+        padding: 0 15px
+    }
+    .banner .infoBox h1 {
+        margin-left: 120px;
+    }
+    .banner .priceBox {
+        margin-left: 120px;
+    }
+    .banMenu {
+        margin: 20px 150px;
+    }
+    .banMenu .box {
+        padding: 0 35px;
+    }
+    header .logo {
+        margin-left: 10px
+    }
+}
+
+@media screen and (max-width: 425px){
+    .container {
+        overflow: hidden; /* hide menu from bottom */
+    }
+    nav {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(70, 146, 247, 0.8) !important;
+        transition: 0.5s;
+        top: 200vh;
+        overflow: hidden;
+        z-index: 9999;
+    }
+
+    nav.show {
+        top: 50px;
+    }
+
+    header nav ul li {
+        float: none;
+    }
+   
+    header nav ul li a {
+        width: 100%;
+        color: rgb(252, 249, 249);
+        display: inline-block;
+    }
+    .navMenu {
+        /* display: inline; */
+        opacity: 1;
+    }
+    .banner {
+        grid-template-columns: 1fr;
+    }
+    .banner .infoBox h1 {
+        font-size: 30px;
+        margin-top: 35px;
+    }
+    .banner .infoBox .priceBox {
+        font-size: 18px;
+    }
+    .banner .infoBox button {
+        padding: 3px 12px;
+    }
+    .banner .imgBox {
+        margin-left: 60px;
+        height: 300px;
+    }
+    .banMenu {
+        grid-template-columns: 1fr;
+        margin: 20px 50px 0 300px;
+    }
+    .banMenu .box {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+}
